@@ -7,7 +7,9 @@ public class Sc_Brick : MonoBehaviour
     
     public bool isShootable;
     [SerializeField]
-    private Material[] mat_Cubes;
+    private Material[] mat_Bricks;
+    [SerializeField]
+    private float rigidMass=0.5f;
      
     public void Walling(int a)
     {
@@ -16,7 +18,9 @@ public class Sc_Brick : MonoBehaviour
             isShootable=true;
 
             ChangeColor();          
-            this.GetComponent<Rigidbody>().isKinematic=false;
+            Rigidbody rigid=new Rigidbody();           
+            rigid=this.gameObject.AddComponent<Rigidbody>();
+            rigid.mass=rigidMass;
             this.gameObject.layer=8;
             GameManager._Instance.AddColoredList(this.gameObject);
            
@@ -30,8 +34,8 @@ public class Sc_Brick : MonoBehaviour
 
     public void ChangeColor()
     {
-        int k =Random.Range(1,mat_Cubes.Length);
-        this.GetComponent<Renderer>().material=mat_Cubes[k];
+        int k =Random.Range(1,mat_Bricks.Length);
+        this.GetComponent<Renderer>().material=mat_Bricks[k];
     }
 
    

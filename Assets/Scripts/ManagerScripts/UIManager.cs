@@ -8,12 +8,6 @@ public class UIManager : MonoBehaviour
 {
    [SerializeField]
    private GameObject pnl_LevelComp;
-    void Start()
-    {
-        
-    }
-
- 
     void Update()
     {
         if(GameManager._Instance.isFinish)
@@ -35,7 +29,7 @@ public class UIManager : MonoBehaviour
     }
     public void Again()
     {
-         SceneManager.LoadScene("SampleScene");
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
          Time.timeScale=1;
     }
 }

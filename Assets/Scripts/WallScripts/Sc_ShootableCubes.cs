@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Sc_ShootableCubes : Sc_ShootableSurface
 {
-    [SerializeField]
-    private GameObject pre_Brick;
-
     private int totalBrick;
-    void Start()
+    public override void Start()
     {
+        
         if ((columnCount * rowCount) <= shootableObjCount)
         {
             shootableObjCount = columnCount * rowCount;
         }
         totalBrick = columnCount * rowCount;
-        BuildWall();
+        
+        base.Start();
     }
 
-    void BuildWall()
+    public override void BuildWall()
     {
 
         for (int k = 0; k < rowCount; k++)
@@ -62,7 +61,7 @@ public class Sc_ShootableCubes : Sc_ShootableSurface
             }
         }
     }
-    Vector3 BrickPos(int k, int j)
+    public override Vector3 BrickPos(int k, int j)
     {
         float x = 0 - ((columnCount / 2f) - (pre_Brick.transform.localScale.x / 2f)) + (j * pre_Brick.transform.localScale.x);
         float y = 0.5f + (k * pre_Brick.transform.localScale.y);
