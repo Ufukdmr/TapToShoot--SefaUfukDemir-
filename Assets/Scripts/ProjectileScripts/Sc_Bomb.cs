@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Sc_Bomb : Sc_Explosion
 {
-    public override void Throw(Vector3 dir)
-    {
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-    }
+
     public override void Detonate()
     {
         Vector3 expolisonPos = this.transform.position;

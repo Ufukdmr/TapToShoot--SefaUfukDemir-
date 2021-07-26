@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77531ff1be6c0c40a7bcd78a91d3e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   shootable:
     serializedVersion: 2
     m_Bits: 256
@@ -214,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34db1267267afc489d7da0792b58434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 856197532527416878, guid: a612476e641061246b28ceffecd25ed2,
+    type: 3}
   SpawnPos: {fileID: 1011015509}
   isFinish: 0
   isThrowing: 0
@@ -1113,6 +1114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011015510}
+  - component: {fileID: 1011015511}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -1134,6 +1136,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011015511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011015509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ec754a70ae7245b73264a2f3aeaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Bullet
+    prefab: {fileID: 856197532527416878, guid: a612476e641061246b28ceffecd25ed2, type: 3}
+    size: 50
 --- !u!1 &1055179546
 GameObject:
   m_ObjectHideFlags: 0

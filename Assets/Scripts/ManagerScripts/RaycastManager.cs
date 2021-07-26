@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RaycastManager : MonoBehaviour
 {
-    public GameObject selectedObject;
+    private GameObject selectedObject;
     [SerializeField]
     LayerMask shootable;
+
+    GameObject Bullet;
    
     private static RaycastManager instance;
 
@@ -33,10 +35,17 @@ public class RaycastManager : MonoBehaviour
             {
                 selectedObject = hitInfo.collider.gameObject;     
                 GameManager._Instance.GetTarget(selectedObject);          
-              
-               selectedObject=null;
+                Bullet=ObjectPooler.Instance.ShootFromPool("Bullet",this.transform.rotation); 
+               
+             
             }
+            
         }
+           if(selectedObject!=null)
+        {
+            Bullet.GetComponent<Sc_Bullet>().Throw(selectedObject.transform.position-Bullet.transform.position);
+        }
+       
 
     }
 }

@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
     public void GetProjectile(Sc_Button btn)
     {     
-      GameManager._Instance.GetProjectile(btn.pre_Projectile);
+    //   GameManager._Instance.GetProjectile(btn.pre_Projectile);
     }
 
     IEnumerator FinishGame()

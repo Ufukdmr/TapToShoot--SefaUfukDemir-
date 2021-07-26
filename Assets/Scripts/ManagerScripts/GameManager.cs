@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
     GameObject projectile;
     [SerializeField]
     GameObject SpawnPos;
@@ -31,15 +32,15 @@ public class GameManager : MonoBehaviour
         }
     }
    
-    void FixedUpdate()
-    {
-       if(isThrowing)
-       {
-            projectile.GetComponent<Sc_Projectile>().Throw(dir);
-       }
+    // void FixedUpdate()
+    // {
+    //    if(isThrowing)
+    //    {
+    //         projectile.GetComponent<Sc_Projectile>().Throw(dir);
+    //    }
          
         
-    }
+    // }
 
     void Update()
     {
@@ -48,37 +49,38 @@ public class GameManager : MonoBehaviour
             isFinish=true;
         }
     }
-    public void GetProjectile(GameObject Projectile)
-    {       
-        if(Projectile!=null)
-        {          
-            if(projectile!=Projectile)
-            {
-                Destroy(projectile);
-            }
-            projectile=Instantiate(Projectile,SpawnPos.transform.position,Projectile.transform.rotation);
+    // public void GetProjectile(GameObject Projectile)
+    // {       
+    //     if(Projectile!=null)
+    //     {          
+    //         if(projectile!=Projectile)
+    //         {
+    //             Destroy(projectile);
+    //         }
+    //         projectile=Instantiate(Projectile,SpawnPos.transform.position,Projectile.transform.rotation);
            
-        }
-    }
+    //     }
+    // }
     public void GetTarget(GameObject Target)
     {
         target=Target;
         dir = target.transform.position - SpawnPos.transform.position;
-        TapToShoot();
+       
+       projectile.GetComponent<Sc_Projectile>().Throw(dir);
     }
 
-    public void TapToShoot()
-    {
-        if(target!=null&&projectile!=null)
-        {                              
-             isThrowing=true;  
-             foreach(GameObject coloredBrick in coloredBricks)
-             {
-                 coloredBrick.GetComponent<Sc_Brick>().ChangeColor();
-             }                    
-        }
+    // public void TapToShoot()
+    // {
+    //     if(target!=null&&projectile!=null)
+    //     {                              
+    //          isThrowing=true;  
+    //          foreach(GameObject coloredBrick in coloredBricks)
+    //          {
+    //              coloredBrick.GetComponent<Sc_Brick>().ChangeColor();
+    //          }                    
+    //     }
       
-    }
+    // }
 
     public void AddColoredList(GameObject coloredBrick)
     {
